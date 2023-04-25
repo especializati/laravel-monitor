@@ -28,7 +28,9 @@ class SiteController extends Controller
         $user = auth()->user();
         $user->sites()->create($request->validated());
 
-        return redirect()->route('sites.index');
+        return redirect()
+                    ->route('sites.index')
+                    ->with('message', 'Site Criado com sucesso');
     }
 
     public function edit(string $id)
@@ -44,6 +46,17 @@ class SiteController extends Controller
     {
         $site->update($request->validated());
 
-        return redirect()->route('sites.index');
+        return redirect()
+                    ->route('sites.index')
+                    ->with('message', 'Site Alterado com sucesso');
+    }
+
+    public function destroy(Site $site)
+    {
+        $site->delete();
+
+        return redirect()
+                    ->route('sites.index')
+                    ->with('message', 'Site Deletado com sucesso');;
     }
 }

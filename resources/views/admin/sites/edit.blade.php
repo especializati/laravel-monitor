@@ -6,3 +6,9 @@
     @method('PUT')
     @include('admin/sites/partials/form')
 </form>
+
+<form action="{{ route('sites.destroy', $site->id) }}" method="post">
+    @csrf()
+    @method('DELETE')
+    <button type="submit">Deletar Site</button>
+</form>

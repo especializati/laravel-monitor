@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])
     ->prefix('admin')
     ->group(function () {
+    Route::delete('/sites/{site}', [SiteController::class, 'destroy'])->name('sites.destroy');
     Route::put('/sites/{site}', [SiteController::class, 'update'])->name('sites.update');
     Route::get('/sites/{site}/edit', [SiteController::class, 'edit'])->name('sites.edit');
     Route::post('/sites', [SiteController::class, 'store'])->name('sites.store');

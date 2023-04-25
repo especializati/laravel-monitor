@@ -2,6 +2,8 @@
 
 <a href="{{ route('sites.create') }}">Novo</a>
 
+<x-alerts/>
+
 <table>
     <thead>
         <tr>
