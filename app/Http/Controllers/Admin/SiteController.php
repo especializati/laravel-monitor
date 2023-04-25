@@ -26,7 +26,23 @@ class SiteController extends Controller
     {
         // $user = Auth::user();
         $user = auth()->user();
-        $user->sites()->create($request->all());
+        $user->sites()->create($request->validated());
+
+        return redirect()->route('sites.index');
+    }
+
+    public function edit(string $id)
+    {
+        if (!$site = Site::find($id)) {
+            return back();
+        }
+
+        return view('admin/sites/edit', compact('site'));
+    }
+
+    public function update(StoreUpdateSiteRequest $request, Site $site)
+    {
+        $site->update($request->validated());
 
         return redirect()->route('sites.index');
     }
