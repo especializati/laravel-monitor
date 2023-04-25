@@ -12,7 +12,7 @@ class Site extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $fillable = ['url'];
+    protected $fillable = ['url', 'user_id'];
 
     public function user(): BelongsTo
     {
