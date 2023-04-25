@@ -1,5 +1,7 @@
 <h1>Sites</h1>
 
+<a href="{{ route('sites.create') }}">Novo</a>
+
 <table>
     <thead>
         <tr>
