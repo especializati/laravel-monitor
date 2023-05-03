@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\EndpointController;
 use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -7,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])
     ->prefix('admin')
     ->group(function () {
+    Route::resource('/sites/{siteId}/endpoints', EndpointController::class);
+
     Route::delete('/sites/{site}', [SiteController::class, 'destroy'])->name('sites.destroy');
     Route::put('/sites/{site}', [SiteController::class, 'update'])->name('sites.update');
     Route::get('/sites/{site}/edit', [SiteController::class, 'edit'])->name('sites.edit');
