@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class StoreUpdateSiteRequest extends FormRequest
 {
@@ -26,6 +28,8 @@ class StoreUpdateSiteRequest extends FormRequest
                 'required',
                 'url',
                 'max:255',
+                // 'unique:sites',
+                Rule::unique('sites')->where('user_id', Auth::user()->id),
             ]
         ];
     }
