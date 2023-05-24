@@ -32,7 +32,7 @@ class EndpointCheckJob implements ShouldQueue
 
         $this->endpoint->checks()->create([
             'status_code' => $response->status(),
-            'response_body' => $response->body(),
+            'response_body' => $response->successful() ? null : $response->body(),
         ]);
 
         $this->endpoint->update([
