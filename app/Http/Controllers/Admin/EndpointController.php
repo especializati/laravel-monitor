@@ -53,4 +53,13 @@ class EndpointController extends Controller
                 ->route('endpoints.index', $site->id)
                 ->with('message', 'Atualizado com sucesso');
     }
+
+    public function destroy(Site $site, Endpoint $endpoint)
+    {
+        $endpoint->delete();
+
+        return redirect()
+                ->route('endpoints.index', $site->id)
+                ->with('message', 'Deletado com sucesso');
+    }
 }
