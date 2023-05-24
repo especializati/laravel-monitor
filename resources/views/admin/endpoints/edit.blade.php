@@ -12,6 +12,7 @@
                     <x-alerts/>
 
                     <form action="{{ route('endpoints.update', [$site->id, $endpoint->id]) }}" method="post">
+                        @method('PUT')
                         @include('admin/endpoints/partials/form')
                     </form>
                 </div>
