@@ -25,12 +25,12 @@ class SiteController extends Controller
     public function store(StoreUpdateSiteRequest $request)
     {
         // $user = Auth::user();
-        $user = auth()->user();
-        $user->sites()->create($request->validated());
+        // $user = auth()->user();
+        $request->user->sites()->create($request->validated());
 
         return redirect()
-                    ->route('sites.index')
-                    ->with('message', 'Site Criado com sucesso');
+            ->route('sites.index')
+            ->with('message', 'Site Criado com sucesso');
     }
 
     public function edit(string $id)
@@ -47,8 +47,8 @@ class SiteController extends Controller
         $site->update($request->validated());
 
         return redirect()
-                    ->route('sites.index')
-                    ->with('message', 'Site Alterado com sucesso');
+            ->route('sites.index')
+            ->with('message', 'Site Alterado com sucesso');
     }
 
     public function destroy(Site $site)
@@ -56,7 +56,7 @@ class SiteController extends Controller
         $site->delete();
 
         return redirect()
-                    ->route('sites.index')
-                    ->with('message', 'Site Deletado com sucesso');;
+            ->route('sites.index')
+            ->with('message', 'Site Deletado com sucesso');;
     }
 }
