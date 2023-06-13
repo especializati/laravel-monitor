@@ -26,7 +26,7 @@ class SiteController extends Controller
     {
         // $user = Auth::user();
         // $user = auth()->user();
-        $request->user->sites()->create($request->validated());
+        $request->user()->sites()->create($request->validated());
 
         return redirect()
             ->route('sites.index')
