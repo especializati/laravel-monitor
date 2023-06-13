@@ -17,4 +17,9 @@ class Check extends Model
     {
         return $this->belongsTo(Endpoint::class);
     }
+
+    public function isSuccess(): bool
+    {
+        return $this->status_code >= 200 && $this->status_code < 300;
+    }
 }
