@@ -12,7 +12,7 @@ class EndpointController extends Controller
 {
     public function index(string $siteId)
     {
-        $site = Site::with('endpoints')->find($siteId);
+        $site = Site::with('endpoints.check')->find($siteId);
         if (!$site) {
             return back();
         }
@@ -36,8 +36,8 @@ class EndpointController extends Controller
         $site->endpoints()->create($request->all());
 
         return redirect()
-                ->route('endpoints.index', $site->id)
-                ->with('message', 'Cadastrado com sucesso');
+            ->route('endpoints.index', $site->id)
+            ->with('message', 'Cadastrado com sucesso');
     }
 
     public function edit(Site $site, Endpoint $endpoint)
@@ -50,8 +50,8 @@ class EndpointController extends Controller
         $endpoint->update($request->validated());
 
         return redirect()
-                ->route('endpoints.index', $site->id)
-                ->with('message', 'Atualizado com sucesso');
+            ->route('endpoints.index', $site->id)
+            ->with('message', 'Atualizado com sucesso');
     }
 
     public function destroy(Site $site, Endpoint $endpoint)
@@ -59,7 +59,7 @@ class EndpointController extends Controller
         $endpoint->delete();
 
         return redirect()
-                ->route('endpoints.index', $site->id)
-                ->with('message', 'Deletado com sucesso');
+            ->route('endpoints.index', $site->id)
+            ->with('message', 'Deletado com sucesso');
     }
 }
