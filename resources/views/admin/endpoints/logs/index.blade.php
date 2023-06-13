@@ -16,6 +16,7 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-6">Status</th>
+                                <th scope="col" class="px-6 py-6">Data</th>
                                 <th scope="col" class="px-6 py-6">Response</th>
                             </tr>
                         </thead>
@@ -23,6 +24,7 @@
                             @forelse ($checks as $check)
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <td class="px-6 py-4">{{ $check->status_code }}</td>
+                                    <td class="px-6 py-4">{{ $check->created_at }}</td>
                                     <td class="px-6 py-4">{{ $check->response_body ?? '-' }}</td>
                                 </tr>
                             @empty
