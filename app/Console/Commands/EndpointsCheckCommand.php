@@ -28,7 +28,7 @@ class EndpointsCheckCommand extends Command
     public function handle()
     {
         Endpoint::where('next_check', '<=', now())->each(function ($endpoint) {
-            EndpointCheckJob::dispatchSync($endpoint);
+            EndpointCheckJob::dispatch($endpoint);
         });
     }
 }
