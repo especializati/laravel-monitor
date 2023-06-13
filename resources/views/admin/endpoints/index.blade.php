@@ -29,7 +29,7 @@
                                     <td class="px-6 py-4">{{ $endpoint->endpoint }}</td>
                                     <td class="px-6 py-4">{{ $endpoint->frequency }}</td>
                                     <td class="px-6 py-4">
-                                        @if ($endpoint->check->isSuccess())
+                                        @if ($endpoint->check?->isSuccess())
                                             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                             </svg>
